@@ -21,19 +21,41 @@ class hideouttweaks
     locales.en.interface["hideout_HealthRegeneration"] = "Total max stamina"
     locales.en.interface["hideout_EnergyRegeneration"] = "Total max energy"
     locales.en.interface["hideout_MaximumEnergyReserve"] = "Total Hydration and Energy reserve"
-    hideout.areas[20].stages[1].bonuses.value = 20
-    hideout.areas[20].stages[2].bonuses.value = 40
-    hideout.areas[20].stages[3].bonuses.value = 50
+    
+    for (product in products)
+    {
+      if (products[product].areaType == 20)
+      {
+        products[product].productionTime = 72000
+      }
+      
+      if (products[product].areaType == 19)
+      {
+        products[product].productionTime = 7200
+      }
+      
+      if (products[product].areaType == 6)
+      {
+        products[product].productionTime = 10800
+      }
+    }
   }
   
-  begin(url, info, sessionID)
+  static begin(url, info, sessionID)
   {
     setInterval(hideouttweaks.getPlayerData, 1000, sessionID)
   }
   
-  getPlayerData(sessionID)
+  static getPlayerData(sessionID)
   {
     let pmcData = ProfileController.getPmcProfile(sessionID)
+    
+    globals.Regeneration.Energy = 0 // enforce no regen
+    globals.Regeneration.Hydration = 0
+    for (let value in globals.Regeneration.BodyHealth)
+    {
+      globals.Regeneration.BodyHealth.Value = 0
+    }
     
     if (pmcData.Hideout.Areas[7].level == 1)
     {
