@@ -87,7 +87,7 @@ class hideouttweaks
       globals.Stamina.Capacity += 20
     }
     
-    if(pmcData.Hideout.Areas[8].level == 31)
+    if(pmcData.Hideout.Areas[8].level == 3)
     {
       locales.en.interface["{0} hp/hr ({1} hp/hr in total)"] = `+50 SP (${globals.Stamina.Capacity} total)`
       globals.Stamina.Capacity += 10
@@ -99,13 +99,13 @@ class hideouttweaks
       pmcData.Health.Energy.Maximum += 5
     }
     
-    if (pmcData.Hideout.Areas[7].level == 1)
+    if (pmcData.Hideout.Areas[7].level == 2)
     {
       locales.en.interface["{0} ep/hr ({1} ep/hr in total)"] = `+5 EP (${pmcData.Health.Energy.Maximum} total)`
       pmcData.Health.Energy.Maximum += 5
     }
     
-    if (pmcData.Hideout.Areas[7].level == 1)
+    if (pmcData.Hideout.Areas[7].level == 3)
     {
       locales.en.interface["{0} ep/hr ({1} ep/hr in total)"] = `+15 EP (${pmcData.Health.Energy.Maximum} total)`
       pmcData.Health.Energy.Maximum += 5
