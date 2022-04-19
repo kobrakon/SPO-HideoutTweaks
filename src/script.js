@@ -9,7 +9,7 @@ class hideouttweaks
 {
   constructor ()
   {
-    this.mod = ModLoader.basePath["Kobrakon-HideoutTweaks"]
+    this.mod = ModLoader.getModPath["Kobrakon-HideoutTweaks"]
     ModLoader.onModLoad[this.mod] = this.load.bind(this)
     HttpRouter.onStaticRoute["/client/game/start"] = Object.Assign({"Interceptor": hideouttweaks.begin}, HttpRouter.onStaticRoute["/client/game/start"])
     HttpRouter.onStaticRoute["/client/game/start"] = hideouttweaks.begin(url, info, sessionID)
